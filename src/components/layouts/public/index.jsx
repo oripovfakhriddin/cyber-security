@@ -67,7 +67,7 @@ const PublicLayout = () => {
         style={{
           padding: "0 20px",
           width: "100%",
-          height: "80vh",
+          height: "100%",
           backgroundColor: "black",
           backgroundImage: `url(${background})`,
           backgroundRepeat: "no-repeat",
@@ -96,7 +96,7 @@ const PublicLayout = () => {
           textAlign: "center",
         }}
       >
-        ©2023 make by Juniors Developers
+        ©2023 make by Juniors Developers group
       </Footer>
     </Layout>
   );
