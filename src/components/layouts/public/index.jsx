@@ -67,7 +67,7 @@ const PublicLayout = () => {
         style={{
           padding: "0 20px",
           width: "100%",
-          height: "100%",
+          height: "100vh",
           backgroundColor: "black",
           backgroundImage: `url(${background})`,
           backgroundRepeat: "no-repeat",
