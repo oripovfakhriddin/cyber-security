@@ -1,10 +1,23 @@
+import { Fragment } from "react";
+
+import UserHelloImg from "../../../assets/img/home/user-hello.png";
+
 import "./style.scss";
 
 const UserDashboardPage = () => {
   return (
-    <div>
-      <h1 style={{ color: "red" }}>UserDashboardPage</h1>
-    </div>
+    <Fragment>
+      <section>
+        <div className="dashboard__content__box">
+          <div className="user__hello__img__box">
+            <img src={UserHelloImg} alt="User Img Hello" />
+          </div>
+          <div className="dashboard__content__block">
+            <h1>Assalomu aleykum hurmatli foydalanuvchi!</h1>
+          </div>
+        </div>
+      </section>
+    </Fragment>
   );
 };
 

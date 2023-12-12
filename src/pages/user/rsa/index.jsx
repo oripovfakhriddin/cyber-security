@@ -30,8 +30,7 @@ const UserRsaPage = () => {
     }
   };
 
-  const alphabet =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%&!?.':;0123456789 ";
+  const alphabet = "abcdefghijklmnopqrstuvwxyz@#$%&!?.':;0123456789 ";
   for (let i = 0; i < alphabet.length; i++) {
     console.log(i, "-", alphabet[i]);
   }

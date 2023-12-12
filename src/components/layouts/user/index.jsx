@@ -1,5 +1,5 @@
-import { Fragment, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 import { Layout, Menu, theme } from "antd";
 
@@ -9,6 +9,8 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+
+import useScreenSize from "./../../../utils/useScreen";
 
 import "./style.scss";
 
@@ -25,19 +27,29 @@ function getItem(label, key, icon, children) {
 const items = [
   getItem(
     <NavLink to="/dashboard">Dashboard</NavLink>,
-    "1",
+    "/dashboard",
     <PieChartOutlined />
   ),
-  getItem(<NavLink to="/rsa">RSA</NavLink>, "2", <DesktopOutlined />),
+  getItem(<NavLink to="/rsa">RSA</NavLink>, "/rsa", <DesktopOutlined />),
   getItem("User", "sub1", <UserOutlined />),
   getItem("Files", "9", <FileOutlined />),
 ];
 
 const UserLayout = () => {
+  const location = useLocation();
+  const screen = useScreenSize();
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  useEffect(() => {
+    if (screen < 550) {
+      setCollapsed(true);
+    } else {
+      setCollapsed(false);
+    }
+  }, [screen]);
 
   return (
     <Fragment>
@@ -56,7 +68,7 @@ const UserLayout = () => {
           </div>
           <Menu
             theme="dark"
-            defaultSelectedKeys={["1"]}
+            defaultSelectedKeys={[location.pathname]}
             mode="inline"
             items={items}
           />
