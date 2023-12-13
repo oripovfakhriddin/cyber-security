@@ -21,6 +21,10 @@
   }
 }
 
+.site__layout {
+  height: 100vh !important;
+}
+
 .nav {
   .nav__list {
     display: flex;

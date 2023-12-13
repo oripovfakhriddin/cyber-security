@@ -10,3 +10,11 @@
   color: white;
   font-size: 50px;
 }
+
+.form__box {
+  form {
+    .ant-form-item-required {
+      color: red !important;
+    }
+  }
+}

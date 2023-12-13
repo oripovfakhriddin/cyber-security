@@ -105,7 +105,7 @@ const UserLayout = () => {
               textAlign: "center",
             }}
           >
-            TUIT ©2023 Created by Juniors Group
+            TUIT ©2023 maked by Juniors Group
           </Footer>
         </Layout>
       </Layout>
