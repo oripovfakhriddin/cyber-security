@@ -1,13 +1,14 @@
 import { Fragment, useEffect, useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 
-import { Layout, Menu, theme } from "antd";
+import { Layout, Menu } from "antd";
 
 import {
+  CalendarOutlined,
+  DashboardOutlined,
   DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  UserOutlined,
+  MediumOutlined,
+  PicLeftOutlined,
 } from "@ant-design/icons";
 
 import useScreenSize from "./../../../utils/useScreen";
@@ -26,22 +27,32 @@ function getItem(label, key, icon, children) {
 
 const items = [
   getItem(
-    <NavLink to="/dashboard">Dashboard</NavLink>,
+    <NavLink to="/dashboard">DASHBOARD</NavLink>,
     "/dashboard",
-    <PieChartOutlined />
+    <DashboardOutlined />
   ),
   getItem(<NavLink to="/rsa">RSA</NavLink>, "/rsa", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />),
-  getItem("Files", "9", <FileOutlined />),
+  getItem(
+    <NavLink to="/rsa-deshifr">RSA DESHIFR</NavLink>,
+    "/rsa-deshifr",
+    <PicLeftOutlined />
+  ),
+  getItem(
+    <NavLink to="/vernam">VERNAM</NavLink>,
+    "/vernam",
+    <CalendarOutlined />
+  ),
+  getItem(
+    <NavLink to="/deshifr-vernam">VERNAM DESHIFR</NavLink>,
+    "/deshifr-vernam",
+    <MediumOutlined />
+  ),
 ];
 
 const UserLayout = () => {
   const location = useLocation();
   const screen = useScreenSize();
   const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
 
   useEffect(() => {
     if (screen < 550) {
@@ -83,18 +94,18 @@ const UserLayout = () => {
               borderRadius: "10px",
             }}
           >
-            {" "}
+            <h1></h1>
           </Header>
           <Content
             style={{
               margin: "0 16px",
+              background: "linear-gradient(#2E9AFF, #001529,  #F498AD)",
+              borderRadius: "10px",
             }}
           >
             <div
               style={{
-                padding: 24,
-                minHeight: 360,
-                background: colorBgContainer,
+                padding: 12,
               }}
             >
               <Outlet />
@@ -103,6 +114,12 @@ const UserLayout = () => {
           <Footer
             style={{
               textAlign: "center",
+              color: "white",
+              background: "#001529",
+              marginTop: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              borderRadius: "10px",
             }}
           >
             TUIT ©2023 maked by Juniors Group

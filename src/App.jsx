@@ -8,7 +8,10 @@ import PublicContactPage from "./pages/public/contact";
 import PublicHomePage from "./pages/public/home/index";
 import PublicLoginPage from "./pages/public/login";
 import UserDashboardPage from "./pages/user/dashboard";
+import UserDeshifrRsaPage from "./pages/user/deshifr-rsa";
+import UserDeshifrVernamPage from "./pages/user/deshifr-vernam";
 import UserRsaPage from "./pages/user/rsa";
+import VernamPage from "./pages/user/vernam";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <Route element={<UserLayout />}>
             <Route path="/dashboard" element={<UserDashboardPage />} />
             <Route path="/rsa" element={<UserRsaPage />} />
+            <Route path="/rsa-deshifr" element={<UserDeshifrRsaPage />} />
+            <Route path="/vernam" element={<VernamPage />} />
+            <Route path="/deshifr-vernam" element={<UserDeshifrVernamPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

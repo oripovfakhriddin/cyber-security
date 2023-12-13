@@ -13,7 +13,7 @@ const UserDashboardPage = () => {
             <img src={UserHelloImg} alt="User Img Hello" />
           </div>
           <div className="dashboard__content__block">
-            <h1>Assalomu aleykum hurmatli foydalanuvchi!</h1>
+            <h1 className="content__title">Assalomu aleykum hurmatli foydalanuvchi!</h1>
           </div>
         </div>
       </section>
