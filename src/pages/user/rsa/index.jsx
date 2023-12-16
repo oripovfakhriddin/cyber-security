@@ -94,7 +94,7 @@ const UserRsaPage = () => {
   return (
     <Fragment>
       <section>
-        <Flex className="form__box" align="center" justify="center">
+        <Flex className="form__box__rsa" align="center" justify="center">
           <Form
             name="basic"
             labelCol={{
@@ -149,7 +149,7 @@ const UserRsaPage = () => {
                 },
               ]}
             >
-              <Input placeholder="Xabarrni kiriting" />
+              <Input.TextArea placeholder="Xabarrni kiriting" />
             </Form.Item>
 
             <Form.Item
@@ -158,7 +158,7 @@ const UserRsaPage = () => {
               }}
             >
               <Button
-                style={{ width: "100%" }}
+                style={{ width: "100%", marginTop: "20px" }}
                 type="primary"
                 htmlType="submit"
               >
