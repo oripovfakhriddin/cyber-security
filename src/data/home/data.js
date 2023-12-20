@@ -27,6 +27,15 @@ const homeData = [
     age: 19,
     image: "",
   },
+  {
+    id: "4",
+    lastName: "Oripov",
+    firstName: "Faxriddin",
+    description: "Namangan viloyati Chust tumani Varzik qishlog'ida tug'ilgan",
+    group: "731-22",
+    age: 19,
+    image: "",
+  },
 ];
 
 export default homeData;

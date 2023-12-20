@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Carousel from "react-multi-carousel";
 
 import imageDamir from "../../../assets/img/home/damir.jpg";
+import imageFakhriddin from "../../../assets/img/home/fakhriddin.jpg";
 import imageSamandar from "../../../assets/img/home/keldibekov.jpg";
 import imageSherzod from "../../../assets/img/home/sherzod.jpg";
 import homeData from "../../../data/home/data";
@@ -9,6 +10,8 @@ import homeData from "../../../data/home/data";
 import "./style.scss";
 
 const PublicHomePage = () => {
+  console.log(homeData[3]);
+
   const responsive = {
     desktop: {
       breakpoint: {
@@ -74,6 +77,7 @@ const PublicHomePage = () => {
         slidesToSlide={1}
         swipeable
       >
+        
         <div className="user__box">
           <div className="user__img__box">
             <img src={imageSamandar} alt="Samandar" />
@@ -87,6 +91,7 @@ const PublicHomePage = () => {
             <p>{homeData[0].description}</p>
           </div>
         </div>
+
         <div className="user__box">
           <div className="user__img__box">
             <img src={imageSherzod} alt="Sherzod" />
@@ -100,6 +105,7 @@ const PublicHomePage = () => {
             <p>{homeData[1].description}</p>
           </div>
         </div>
+
         <div className="user__box">
           <div className="user__img__box">
             <img src={imageDamir} alt="Damir" />
@@ -113,6 +119,21 @@ const PublicHomePage = () => {
             <p>{homeData[2].description}</p>
           </div>
         </div>
+
+        <div className="user__box">
+          <div className="user__img__box">
+            <img src={imageFakhriddin} alt="Fakhriddin" />
+          </div>
+          <div className="user__content__box">
+            <h2>
+              {homeData[3].firstName} {homeData[3].lastName}
+            </h2>
+            <p>Guruhi: {homeData[3].group}</p>
+            <p>Yoshi: {homeData[3].age}</p>
+            <p>{homeData[3].description}</p>
+          </div>
+        </div>
+
       </Carousel>
     </Fragment>
   );
