@@ -1,10 +1,12 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 import { Button, Flex, Form, Input } from "antd";
 
 import "./style.scss";
 
 const UserRsaPage = () => {
+  const [stateShifrText, setStateShifrText] = useState(null);
+
   const isCoprime = (e, fi) => {
     while (fi != 0) {
       let temp = fi;
@@ -30,13 +32,64 @@ const UserRsaPage = () => {
     }
   };
 
-  const alphabet = "abcdefghijklmnopqrstuvwxyz@#$%&!?.':;0123456789 ";
+  const alphabet = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+    "@",
+    "#",
+    "$",
+    "%",
+    "&",
+    "!",
+    "?",
+    ".",
+    "'",
+    ":",
+    ";",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    ")",
+  ];
+
   for (let i = 0; i < alphabet.length; i++) {
     console.log(i, "-", alphabet[i]);
   }
 
   const onFinish = (values) => {
     const { pNumber, qNumber, text } = values;
+
     let nNumber = pNumber * qNumber;
     let fiNumber = (pNumber - 1) * (qNumber - 1);
     let eNumber = select_E_Number(fiNumber);
@@ -51,7 +104,7 @@ const UserRsaPage = () => {
     for (let i = 0; i < text.length; i++) {
       for (let j = 0; j < alphabet.length; j++) {
         if (text[i] == alphabet[j]) {
-          console.log("i=", i, "---", "j=", j + 1);
+          console.log("i=", i, "---", "j=", j);
           shifr.push(Math.pow(j + 1, eNumber) % nNumber);
         }
       }
@@ -64,8 +117,10 @@ const UserRsaPage = () => {
         }
       }
     }
+
     console.log(shifr);
     console.log("Shifrlangan xabar: ", shifrText);
+    setStateShifrText(shifrText);
 
     //DESHIFRLASH
 
@@ -166,6 +221,15 @@ const UserRsaPage = () => {
               </Button>
             </Form.Item>
           </Form>
+        </Flex>
+        <Flex className="form__box__rsa" align="center" justify="center">
+          {stateShifrText === null ? (
+            <p>Sizning shifrlangan xabaringiz quyidagi joyda kurinadi!</p>
+          ) : (
+            <p className="rsa__shifrText" >
+              {stateShifrText}
+            </p>
+          )}
         </Flex>
       </section>
     </Fragment>

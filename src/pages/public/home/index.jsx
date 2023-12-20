@@ -77,7 +77,6 @@ const PublicHomePage = () => {
         slidesToSlide={1}
         swipeable
       >
-        
         <div className="user__box">
           <div className="user__img__box">
             <img src={imageSamandar} alt="Samandar" />
@@ -133,7 +132,6 @@ const PublicHomePage = () => {
             <p>{homeData[3].description}</p>
           </div>
         </div>
-
       </Carousel>
     </Fragment>
   );
