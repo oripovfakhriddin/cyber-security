@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { Button, Flex, Form, Input } from "antd";
 
@@ -10,6 +11,9 @@ const PublicLoginPage = () => {
   const onFinish = (values) => {
     if (values.username == "juniors" && values.password == "123456") {
       navigate("/dashboard");
+      toast.success("Siz foydalanuvchisiz! Tasdiqlandi!")
+    } else {
+      toast.error("Parol yoki Username noto'g'ri!");
     }
   };
 
