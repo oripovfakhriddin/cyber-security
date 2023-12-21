@@ -8,7 +8,7 @@ import "./style.scss";
 const PublicLoginPage = () => {
   const navigate = useNavigate();
   const onFinish = (values) => {
-    if (values.username == "fakhriddin_f7" && values.password == "123456") {
+    if (values.username == "juniors" && values.password == "123456") {
       navigate("/dashboard");
     }
   };
