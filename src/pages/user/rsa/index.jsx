@@ -24,14 +24,6 @@ const UserRsaPage = () => {
     }
   };
 
-  const rsa = (a, b) => {
-    for (let i = 0; i < 10000; i++) {
-      if ((a * i) % b == 1) {
-        return i;
-      }
-    }
-  };
-
   const alphabet = [
     "a",
     "b",
@@ -83,18 +75,12 @@ const UserRsaPage = () => {
     ")",
   ];
 
-  for (let i = 0; i < alphabet.length; i++) {
-    console.log(i, "-", alphabet[i]);
-  }
-
   const onFinish = (values) => {
     const { pNumber, qNumber, text } = values;
 
     let nNumber = pNumber * qNumber;
     let fiNumber = (pNumber - 1) * (qNumber - 1);
     let eNumber = select_E_Number(fiNumber);
-    let dNumber = rsa(eNumber, fiNumber);
-    console.log("fi=", fiNumber, "-", "E=", eNumber, "-", "d=", dNumber);
 
     let shifr = [];
     let shifrText = "";
@@ -104,7 +90,6 @@ const UserRsaPage = () => {
     for (let i = 0; i < text.length; i++) {
       for (let j = 0; j < alphabet.length; j++) {
         if (text[i] == alphabet[j]) {
-          console.log("i=", i, "---", "j=", j);
           shifr.push(Math.pow(j + 1, eNumber) % nNumber);
         }
       }
@@ -118,32 +103,7 @@ const UserRsaPage = () => {
       }
     }
 
-    console.log(shifr);
-    console.log("Shifrlangan xabar: ", shifrText);
     setStateShifrText(shifrText);
-
-    //DESHIFRLASH
-
-    let deShifr = [];
-    let deShifrText = "";
-
-    for (let i = 0; i < shifrText.length; i++) {
-      for (let j = 0; j < alphabet.length; j++) {
-        if (shifrText[i] == alphabet[j]) {
-          deShifr.push(Math.pow(j + 1, dNumber) % nNumber);
-        }
-      }
-    }
-
-    for (let i = 0; i < deShifr.length; i++) {
-      for (let j = 0; j < alphabet.length; j++) {
-        if (deShifr[i] == j + 1) {
-          deShifrText += alphabet[j];
-        }
-      }
-    }
-
-    console.log("Deshifrlangan xabar: ", deShifrText);
   };
 
   return (
@@ -224,11 +184,11 @@ const UserRsaPage = () => {
         </Flex>
         <Flex className="form__box__rsa" align="center" justify="center">
           {stateShifrText === null ? (
-            <p>Sizning shifrlangan xabaringiz quyidagi joyda kurinadi!</p>
-          ) : (
-            <p className="rsa__shifrText" >
-              {stateShifrText}
+            <p className="rsa__shifrText">
+              {`Sizning shifrlangan xabaringiz quyidagi joyda ko'rinadi!`}
             </p>
+          ) : (
+            <p className="rsa__shifrText">{stateShifrText}</p>
           )}
         </Flex>
       </section>
